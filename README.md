@@ -15,3 +15,20 @@ sampling publish gradle package on github
 - <https://docs.github.com/en/actions/security-guides/encrypted-secrets>
 - <https://github.com/settings/tokens/new>
 - <https://github.com/<OWNER>/<REPO>/settings/secrets/actions>
+
+## Working workflow (so far)
+
+- manually update `version` inside **lib/build.gradle.kts**
+- `git tag` to match `version`
+- push new tag to github
+- create new release from github
+
+![new-release.png](imgs/new-release.png)
+
+- use the pushed tag for a new release
+- that will make the github action kick in
+
+## what can be enhanced
+
+- find a way to make the push tag kick the publish AND the release creation
+
