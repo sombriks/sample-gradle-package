@@ -43,7 +43,7 @@ tasks.named<Test>("test") {
     useJUnitPlatform()
 }
 
-val repoUri = "https://github.com/sombriks/sample-gradle-package"
+val repoUri = "https://maven.pkg.github.com/sombriks/sample-gradle-package"
 publishing {
     repositories {
         maven {
