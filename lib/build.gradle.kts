@@ -15,6 +15,10 @@ plugins {
     id("maven-publish")
 }
 
+// versioning
+group = "sample.gradle.mylibrary"
+version = "0.1.0-SNAPSHOT"
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
