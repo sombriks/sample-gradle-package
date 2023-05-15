@@ -12,6 +12,7 @@ plugins {
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
+    id("maven-publish")
 }
 
 repositories {
@@ -36,4 +37,26 @@ dependencies {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+val repoUri = "https://github.com/sombriks/sample-gradle-package"
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri(repoUri)
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        register("jar", MavenPublication::class.java) {
+            from(components["java"])
+            pom {
+                url.set(repoUri)
+            }
+        }
+    }
 }
