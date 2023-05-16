@@ -17,7 +17,7 @@ plugins {
 
 // versioning
 group = "sample.gradle.mylibrary"
-version = "0.1.2-SNAPSHOT"
+version = System.getenv("GIT_TAG") ?: "0.1.0-SNAPSHOT"
 
 repositories {
     // Use Maven Central for resolving dependencies.
