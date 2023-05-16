@@ -32,6 +32,10 @@ GIT_TAG=<the desired tag>
 
 except for `GIT_TAG`, those values are provided by github actions environment.
 
+## using the package
+
+see [this project](https://github.com/sombriks/using-sample-gradle-package)
+
 ## further enhancements
 
 add a release in the github page containing the artifacts present on github package registry
