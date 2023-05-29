@@ -10,8 +10,11 @@
 
 name: Publish package to GitHub Packages
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - "*"
+#  release:
+#    types: [created]
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -32,3 +35,4 @@ jobs:
           arguments: publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_TAG: ${{ github.ref_name }}

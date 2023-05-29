@@ -16,19 +16,26 @@ sampling publish gradle package on github
 - <https://github.com/settings/tokens/new>
 - https://github.com/<OWNER>/<REPO>/settings/secrets/actions
 
-## Working workflow (so far)
+## publishing workflow
 
-- manually update `version` inside **lib/build.gradle.kts**
-- `git tag` to match `version`
-- push new tag to github
-- create new release from github
+in order to create a package into the registry, there is a github action to call `./gradlew publish`.
 
-![new-release.png](imgs/new-release.png)
+simply `git tag <version>`, push the tag and the workflow will kick in.
 
-- use the pushed tag for a new release
-- that will make the github action kick in
+The publish command can be called directly from dev environment, just provide the needed variables:
 
-## what can be enhanced
+```bash
+GITHUB_ACTOR=<your github username>
+GITHUB_TOKEN=<your personal access token>
+GIT_TAG=<the desired tag>
+```
 
-- find a way to make the push tag kick the publish AND the release creation
+except for `GIT_TAG`, those values are provided by github actions environment.
 
+## using the package
+
+see [this project](https://github.com/sombriks/using-sample-gradle-package)
+
+## further enhancements
+
+add a release in the github page containing the artifacts present on github package registry
