@@ -14,7 +14,7 @@ sampling publish gradle package on github
 
 - <https://docs.github.com/en/actions/security-guides/encrypted-secrets>
 - <https://github.com/settings/tokens/new>
-- <https://github.com/<OWNER>/<REPO>/settings/secrets/actions>
+- https://github.com/<OWNER>/<REPO>/settings/secrets/actions
 
 ## Working workflow (so far)
 
